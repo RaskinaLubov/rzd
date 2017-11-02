@@ -26,14 +26,14 @@ export class InMemoryDataService implements InMemoryDbService {
         validators: [{type: 'pattern', value: '[а-яА-ЯёЁa-zA-Z]+$'}]
       },
       {
-        id: '1_7', tabId: '1', lable: 'Дата рождения', type: 'date',
+        id: '1_4', tabId: '1', lable: 'Дата рождения', type: 'date',
         validators: [{type: 'required'}]
       },
       {
         id: '1_5', tabId: '1', lable: 'Адрес', type: 'textarea',
       },
       {
-        id: '1_4', tabId: '1', lable: 'Я даю согласие на обработку персональных данных', type: 'boolean',
+        id: '1_6', tabId: '1', lable: 'Я даю согласие на обработку персональных данных', type: 'boolean',
         validators: [{type: 'requiredTrue'}]
       },
 
