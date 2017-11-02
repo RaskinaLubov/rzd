@@ -1,0 +1,24 @@
+<form *ngIf="items.length>0" [formGroup]="tabForm" (ngSubmit)="onSubmit()">
+  <ng-container *ngFor="let item of items">
+
+    <ng-container *ngIf="item.type==eType.text || item.type==eType.number || item.type==eType.date;">
+    <label>{{item.lable}}</label>
+    <input [formControlName]="item.id" [type]="eType[item.type]">
+    </ng-container>
+
+    <ng-container *ngIf="item.type==eType.boolean;">
+      <label>{{item.lable}}</label>
+      <input [formControlName]="item.id" type="checkbox">
+    </ng-container>
+
+    <ng-container *ngIf="item.type==eType.textarea;">
+       <label>{{item.lable}}</label>
+        <textarea [formControlName]="item.id"></textarea>
+    </ng-container>
+
+    <div *ngIf="formErrors[item.id]" class="alert alert-danger error-message">
+      {{ formErrors[item.id] }}
+    </div>
+  </ng-container>
+
+</form>

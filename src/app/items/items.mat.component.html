@@ -1,0 +1,33 @@
+<form *ngIf="items.length>0" [formGroup]="tabForm" (ngSubmit)="onSubmit()">
+  <ng-container *ngFor="let item of items">
+
+    <ng-container *ngIf="item.type==eType.text || item.type==eType.number;">
+      <mat-form-field>
+        <input matInput [formControlName]="item.id" [type]="eType[item.type]" [placeholder]="item.lable">
+      </mat-form-field>
+    </ng-container>
+
+    <ng-container *ngIf="item.type==eType.date;">
+      <mat-form-field>
+        <input matInput [formControlName]="item.id" [matDatepicker]="picker" [placeholder]="item.lable">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </ng-container>
+
+    <ng-container *ngIf="item.type==eType.textarea;">
+      <mat-form-field>
+        <textarea matInput [formControlName]="item.id" [placeholder]="item.lable"></textarea>
+      </mat-form-field>
+    </ng-container>
+
+    <ng-container *ngIf="item.type==eType.boolean;">
+      <mat-checkbox [formControlName]="item.id">{{item.lable}}</mat-checkbox>
+    </ng-container>
+
+    <div *ngIf="formErrors[item.id]" class="alert alert-danger error-message">
+      {{ formErrors[item.id] }}
+    </div>
+  </ng-container>
+
+</form>

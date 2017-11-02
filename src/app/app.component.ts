@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import './rx-js.operators';
-import {TabService} from './services/tab.service';
 import {TabDto} from './models/dto/TabDto';
+import {TabFacade} from './services/tab.facade';
 
 @Component({
   selector: 'app-root',
@@ -14,19 +14,39 @@ export class AppComponent implements OnInit {
   // @Length(3, 7)
   tabs: TabDto[] = [];
 
-  constructor(private tabService: TabService) {
+  public selectedTab = 0;
+
+
+  constructor(private tabFacade: TabFacade) {
   }
 
   ngOnInit() {
-    this.tabService.getTabs().subscribe(
-      (tabs) => {
-        const tabDtos = tabs.map(tab => tab as TabDto);
+    this.tabFacade.getTabs().subscribe(
+      (tabDtos: TabDto[]) => {
         if (tabDtos.length > 0) {
           tabDtos[0].disabled = false;
+          tabDtos[0].active = true;
         }
         this.tabs = tabDtos;
       });
   }
+
+  enableNextTab = (): void => {
+    // if (this.tabs.length > this.tabGroup.selectedIndex + 1) {
+    //   this.tabs[this.tabGroup.selectedIndex + 1].disabled = false;
+    // }
+  }
+
+  disableAllNextTabs = (): void => {
+    // this.tabs.forEach(
+    //   (tab, index) => {
+    //     if (index > this.tabGroup.selectedIndex) {
+    //       tab.disabled = true;
+    //     }
+    //   }
+    // )
+  }
+
 
 
 

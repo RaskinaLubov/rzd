@@ -1,10 +1,10 @@
 <div style="text-align:center">
-  <app-tabs>
-    <app-tab *ngFor="let tab of tabs" [tabTitle]="tab.title">Tab 1 Content</app-tab>
+  <app-tabs ([selectedIndex])="selectedTab">
+    <app-tab *ngFor="let tab of tabs; let i = index" [tabTitle]="tab.title" [active]="i==selectedTab">
+      <app-items-component [tabId]="tab.id"
+                           [enableNextTab]="enableNextTab"
+                           [disableAllNextTabs]="disableAllNextTabs"
+      ></app-items-component>
+    </app-tab>
   </app-tabs>
-
-  <!--<app-tabs>-->
-    <!--<app-tab [tabTitle]="'Tab 1'">Tab 1 Content</app-tab>-->
-    <!--<app-tab tabTitle="Tab 2">Tab 2 Content</app-tab>-->
-  <!--</app-tabs>-->
 </div>
