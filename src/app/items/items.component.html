@@ -1,4 +1,4 @@
-<form *ngIf="items.length>0" [formGroup]="tabForm" (ngSubmit)="onSubmit()">
+<form *ngIf="items.length>0" [formGroup]="tabForm" (ngSubmit)="onSubmit(tabForm.value)">
   <ng-container *ngFor="let item of items">
 
     <ng-container *ngIf="item.type==eType.text || item.type==eType.number;">
@@ -8,7 +8,7 @@
 
     <ng-container *ngIf="item.type==eType.date;">
       <label>{{item.lable}}</label>
-      <input [formControlName]="item.id" [type]="eType[item.type]">
+      <input [formControlName]="item.id" type="text" title="YYYY-MM-DD" [pattern]="patternDate"/>
     </ng-container>
 
     <ng-container *ngIf="item.type==eType.boolean;">

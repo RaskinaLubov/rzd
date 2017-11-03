@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { TabsComponent } from './components/tabs/tabs.component';
+import {TabGroupComponent} from './components/tabs/tab-group.component';
 import { TabComponent } from './components/tabs/tab/tab.component';
 import {InMemoryDataService} from './services/mock/in-memory-data.service';
 import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
@@ -17,7 +17,7 @@ import {ItemFacade} from './services/item.facade';
 @NgModule({
   declarations: [
     AppComponent,
-    TabsComponent,
+    TabGroupComponent,
     TabComponent,
     ItemsComponent
   ],

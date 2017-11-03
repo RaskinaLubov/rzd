@@ -9,6 +9,7 @@ export class TabComponent implements OnInit {
 
   @Input('tabTitle') tabTitle: string;
   @Input() active = false;
+  @Input() disabled = false;
 
   constructor() {
   }

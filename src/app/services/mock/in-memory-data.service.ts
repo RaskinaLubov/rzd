@@ -79,8 +79,14 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: '4_1', tabId: '4', lable: 'Дополнительная информация', type: 'textarea',
       },
+      {
+        id: '4_2', tabId: '4', lable: 'test number', type: 'number',
+      },
 
     ];
-    return {tabs, items};
+    const valueItems = [
+    ];
+
+    return {tabs, items, valueItems};
   }
 }

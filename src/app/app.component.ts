@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import './rx-js.operators';
 import {TabDto} from './models/dto/TabDto';
 import {TabFacade} from './services/tab.facade';
+import {ItemsComponent} from "./items/items.component";
 
 @Component({
   selector: 'app-root',
@@ -14,8 +15,10 @@ export class AppComponent implements OnInit {
   // @Length(3, 7)
   tabs: TabDto[] = [];
 
-  public selectedTab = 0;
+  @ViewChild('tabGroup') tabGroup;
 
+  @ViewChildren(ItemsComponent)
+  items: QueryList<ItemsComponent>;
 
   constructor(private tabFacade: TabFacade) {
   }
@@ -31,23 +34,28 @@ export class AppComponent implements OnInit {
       });
   }
 
+  switchNextTab = (): void => {
+    const item = this.items.find((it, i) => {
+      return i == this.tabGroup.selectedIndex
+    });
+    item.onSubmit();
+  };
+
   enableNextTab = (): void => {
-    // if (this.tabs.length > this.tabGroup.selectedIndex + 1) {
-    //   this.tabs[this.tabGroup.selectedIndex + 1].disabled = false;
-    // }
-  }
+    if (this.tabs.length > this.tabGroup.selectedIndex + 1) {
+      this.tabs[this.tabGroup.selectedIndex + 1].disabled = false;
+    }
+  };
 
   disableAllNextTabs = (): void => {
-    // this.tabs.forEach(
-    //   (tab, index) => {
-    //     if (index > this.tabGroup.selectedIndex) {
-    //       tab.disabled = true;
-    //     }
-    //   }
-    // )
+    this.tabs.forEach(
+      (tab, index) => {
+        if (index > this.tabGroup.selectedIndex) {
+          tab.disabled = true;
+        }
+      }
+    )
   }
-
-
 
 
 }
