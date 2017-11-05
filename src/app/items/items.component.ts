@@ -30,8 +30,6 @@ export class ItemsComponent implements OnInit {
   @Input() enableNextTab: Function;
   @Input() disableAllNextTabs: Function;
 
-
-  // TODO может перенести в
   validationMessages = {
     [eValidatorTypes[eValidatorTypes.required]]: 'Обязательное поле.',
     [eValidatorTypes[eValidatorTypes.minlength]]: 'Значение должно быть не менее minlength символов.',
