@@ -42,7 +42,7 @@ export class InMemoryDataService implements InMemoryDbService {
         validators: [
           {type: 'required'},
           {type: 'pattern', value: '\\d{4}'}
-          ]
+        ]
       },
       {
         id: '2_2', tabId: '2', lable: 'Номер', type: 'text',
@@ -84,9 +84,8 @@ export class InMemoryDataService implements InMemoryDbService {
       },
 
     ];
-    const valueItems = [
-    ];
+    const value = [{id: 1}];
 
-    return {tabs, items, valueItems};
+    return {tabs, items, value};
   }
 }
