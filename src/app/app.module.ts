@@ -13,6 +13,8 @@ import {ItemsComponent} from './items/items.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ItemService} from './services/item.service';
 import {ItemFacade} from './services/item.facade';
+import {ValueTabFacade} from './services/value-tab.facade';
+import {ValueTabService} from './services/value-tab.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import {ItemFacade} from './services/item.facade';
     TabService,
     TabFacade,
     ItemService,
-    ItemFacade
+    ItemFacade,
+    ValueTabService,
+    ValueTabFacade
   ],
   bootstrap: [AppComponent]
 })
