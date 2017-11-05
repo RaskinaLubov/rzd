@@ -1,7 +1,7 @@
 import {BaseModel} from '../base-model';
 
 export interface ValidatorsItem {
-  type: eValidatorsType,
+  type: eValidatorTypes,
   value: string
 }
 
@@ -34,7 +34,7 @@ export enum eType {
   date
 }
 
-export enum eValidatorsType {
+export enum eValidatorTypes {
   required,
   min,
   minlength,

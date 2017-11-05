@@ -1,4 +1,4 @@
-<form *ngIf="items.length>0" [formGroup]="tabForm" (ngSubmit)="onSubmit(tabForm.value)">
+<form *ngIf="items.length>0" [formGroup]="tabForm" (ngSubmit)="onSubmit()">
   <ng-container *ngFor="let item of items">
 
     <ng-container *ngIf="item.type==eType.text || item.type==eType.number;">

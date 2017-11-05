@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ItemService} from './item.service';
 import {Observable} from 'rxjs/Observable';
-import {eType, eValidatorsType, ItemDto} from '../models/dto/ItemDto';
+import {eType, eValidatorTypes, ItemDto} from '../models/dto/ItemDto';
 import {Item} from '../models/Item';
 
 @Injectable()
@@ -16,7 +16,7 @@ export class ItemFacade {
           let validators = null;
           if (item.validators) {
             validators = item.validators.map((val) => {
-              return {type: eValidatorsType[val.type], value: val.value}
+              return {type: eValidatorTypes[val.type], value: val.value}
             });
           }
           return new ItemDto(item.id, item.tabId, item.lable, eType[item.type], validators);
