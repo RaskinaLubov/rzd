@@ -2,7 +2,7 @@ import {Component, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/co
 import './rx-js.operators';
 import {TabDto} from './models/dto/TabDto';
 import {TabFacade} from './services/tab.facade';
-import {ItemsComponent} from "./items/items.component";
+import {ItemsComponent} from './items/items.component';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +11,6 @@ import {ItemsComponent} from "./items/items.component";
 })
 export class AppComponent implements OnInit {
 
-  // TODO ограничение длины от 3 до 7
-  // @Length(3, 7)
   tabs: TabDto[] = [];
 
   @ViewChild('tabGroup') tabGroup;
@@ -38,7 +36,7 @@ export class AppComponent implements OnInit {
     const item = this.items.find((it, i) => {
       return i == this.tabGroup.selectedIndex
     });
-    item.onSubmit();
+    item.onSubmit(this.tabs[this.tabGroup.selectedIndex].id);
   };
 
   enableNextTab = (): void => {
