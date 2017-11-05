@@ -69,7 +69,7 @@ export class InMemoryDataService implements InMemoryDbService {
         ]
       },
       {
-        id: '3_1', tabId: '3', lable: 'phone number', type: 'text',
+        id: '3_1', tabId: '3', lable: 'Номер телефона', type: 'text',
         validators: [{type: 'pattern', value: '\\d{11}'}]
       },
       {
@@ -78,10 +78,7 @@ export class InMemoryDataService implements InMemoryDbService {
       },
       {
         id: '4_1', tabId: '4', lable: 'Дополнительная информация', type: 'textarea',
-      },
-      {
-        id: '4_2', tabId: '4', lable: 'test number', type: 'number',
-      },
+      }
 
     ];
     const value = [{id: 1}];
